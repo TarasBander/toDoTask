@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+<script type="text/javascript" src="script.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
+	<title>Lviv</title>
+</head>
+<body ng-app="myApp" ng-controller="GreetingController"> 
+	<div class="row">
+		<div class="block col-5 marg">
+			<span>Items</span>
+			<form >
+				<input placeholder="Type name here..." type="text" name="task" ng-model="newTask">
+				<button ng-click="add(newTask)">Add New</button>
+			</form>
+			<div ng-repeat="data in dataList">
+				<div class="row div-tab" ng-click="setTab($index)" ng-class="{ active: isSet($index) }">
+					<div class="col-8 top-pad">
+						<span class="tabs">{{data.name}}</span>
+						<span class="counter">{{data.dept}}</span>
+					</div>
+					<div class="col-4">
+						<button class="delete-button" ng-click="dataList.splice($index, 1)">Delete</button>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<div class="block col-5">
+			<div ng-repeat="com in dataList" ng-show="isSet($index)" class="comment-block">
+		 		<span >Comments#{{$index + 1}}</span>
+		 			<div class="wrapper">
+			 			<div class="content">
+					 		<div class="row" ng-repeat="comment in com.comments">
+				 				<div class="col-2">
+				 					<div class="ava"></div>
+				 				</div>
+				 				<div class="col-8">
+				 					<span style="word-wrap:break-word;">
+										{{comment}}
+									</span>
+				 				</div>
+				 			</div>
+				 		</div>
+	 				</div>
+		 		<div class="textarea-ava"></div>
+	 			<textarea ng-text-enter="textareaAction(com)" ng-model="com.text" ></textarea>
+		 	</div>
+		</div>
+	</div>	
+	</body>
+</html>
