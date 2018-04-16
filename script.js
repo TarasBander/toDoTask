@@ -1,14 +1,12 @@
 var myApp = angular.module('myApp',['ngStorage']);
 
 myApp.controller('GreetingController', ['$scope', '$localStorage', function($scope, $localStorage) {
- 
+    
+    
   	$scope.textareaAction= function(com){  
-
-  		console.log(com.text);
   		com.comments.push(com.text);  		
   		com.text = '';
-  		com.dept += 1;
-  		console.log(com.comments);
+  		com.dept += 1;  		
   	}
 
     $scope.setTab = function(newTab){

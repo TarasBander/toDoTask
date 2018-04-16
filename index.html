@@ -5,7 +5,7 @@
 <script type="text/javascript" src="script.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script> -->
 
 <script type="text/javascript" src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
 	<title>Lviv</title>
@@ -31,11 +31,11 @@
 			</div>
 		</div>
 		<div class="block col-5">
-			<div ng-repeat="com in dataList" ng-show="isSet($index)" class="comment-block">
+			<div ng-repeat="com in dataList track by $index" ng-show="isSet($index)" class="comment-block">
 		 		<span >Comments#{{$index + 1}}</span>
 		 			<div class="wrapper">
 			 			<div class="content">
-					 		<div class="row" ng-repeat="comment in com.comments">
+					 		<div class="row" ng-repeat="comment in com.comments track by $index">
 				 				<div class="col-2">
 				 					<div class="ava"></div>
 				 				</div>

@@ -1,3 +1,6 @@
+body{
+	overflow: hidden;
+}
 .block{
 	width: 40%;
 	height: 600px;
