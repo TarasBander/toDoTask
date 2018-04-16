@@ -20,13 +20,16 @@ myApp.controller('GreetingController', ['$scope', '$localStorage', function($sco
     $scope.newTask = '';
 
     $scope.dataList = $localStorage.dataList;
+    var listData = $scope.dataList;
     $scope.add = function(name){
         var data = {};
        data.name = name ;
        data.dept =0;
        data.comments = [];
        data.text = '';
-       $scope.dataList.push(data);
+       listData.push(data);
+       $scope.dataList = listData;
+       // $scope.dataList.push(data);
        $scope.newTask = '';
        $localStorage.dataList = $scope.dataList;      
 
